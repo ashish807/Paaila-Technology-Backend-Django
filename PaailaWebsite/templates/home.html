@@ -1,0 +1,299 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{%block content%}
+
+    <!-- /.offcanvas-info -->
+    <div class="wrapper bg-opacity-default">
+      <div class="rev_slider_wrapper fullwidth-container dark-spinner dark-nav">
+        <div id="slider11" class="rev_slider fullwidthbanner" data-version="5.4.7">
+          <ul>
+          {%for s_image in sliding_image%}
+     
+              <li data-transition="fade" data-thumb=""><img src="{%static 'style/images/dummy.png' %}" data-bgcolor="#fff" alt="" />
+                <div class="tp-caption tp-rotate bg-opacity-default tp-shape tp-shapewrapper" 
+                  data-x="['center','center','center','center']" 
+                  data-y="['middle','middle','middle','middle']" 
+                  data-hoffset="['0','0','0','0']" 
+                  data-voffset="['0','0','0','0']"
+                data-visibility="['on','on','on','off']"
+                  data-width="3000" 
+                  data-height="900" 
+                  data-whitespace="nowrap" 
+                  data-type="shape" 
+                  data-basealign="slide" 
+                  data-responsive_offset="off" 
+                  data-responsive="off" 
+                  data-frames='[{"from":"opacity:0;","speed":2000,"to":"o:1;","delay":0,"ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"to":"opacity:0;","ease":"nothing"}]' style="z-index: 5;">
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption" 
+                  data-x="left" 
+                  data-y="middle" 
+                  data-hoffset="['420','380','310','310']" 
+                  data-voffset="['20','20','-10','-10']" 
+                  data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                  data-visibility="['on','on','on','off']" 
+                  data-width="none" 
+                  data-height="none" 
+                  data-type="image" 
+                  data-responsive_offset="on" style="z-index: 5;"><img 
+                  data-lazyload="" src="{{s_image.image.url}}"
+                  data-ww="['750','550','550','550']" 
+                  data-hh="auto" alt="" />
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption font-weight-600 color-dark" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']" 
+                  data-voffset="['-80','-80','-80','-50']" 
+                  data-fontsize="['40','40','38','38']" 
+                  data-lineheight="['50','50','48','48']" 
+                  data-width="['350','350','330','330']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-whitespace="['normal','normal','normal','normal']" 
+                  data-frames='[{"delay":1000,"speed":1200,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;">{{s_image.heading}} 
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption font-weight-400 color-dark" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']"  
+                  data-voffset="['-20','30','30','60']" 
+                  data-fontsize="['26','26','24','24']" 
+                  data-lineheight="['36','36','34','34']" 
+                  data-width="['360','360','330','330']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-whitespace="['normal','normal','normal','normal']" 
+                  data-frames='[{"delay":1500,"speed":1200,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;">{{s_image.description}}  
+              </div>
+          <!-- /.tp-caption -->
+                <a class="tp-caption btn btn-l btn-default scroll" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']" 
+                  data-voffset="['50','125','125','155']" 
+                  data-width="['auto','auto','auto','auto']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-frames='[{"delay":2000,"speed":1200,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;" href="{{image.button_hyperlink}}">{{s_image.button_name}}  
+              </a>
+          <!-- /.tp-caption -->
+              </li>
+            {%endfor%}
+         
+
+          
+
+          </ul>
+          <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+        <!-- /.rev_slider -->
+      
+      </div>
+      <!-- /.rev_slider_wrapper -->
+    </div>
+    <!-- /.wrapper -->
+
+<div class="wrapper light-wrapper">
+      <div class="container inner">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <div class="row counter counter-s" data-aos="fade-up" data-aos-delay="50">
+              {%for quantity in quantities%}
+              <div class="col-md-3 col-sm-6 text-center">
+                <div class="icon icon-blob icon-blob-purple color-purple d-flex flex-column align-items-center justify-content-center">
+                  <h3 class="value color-blue">{{quantity.quantity}}</h3>
+                  <p><strong>{{quantity.title}}</strong></p>
+                </div>
+              </div>
+              {%endfor%}
+           
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+
+<div class="space80"></div>
+
+<div class="wrapper dark-wrapper">
+      <div class="rev_slider_wrapper fullscreen-container">
+        <div id="slider9" class="rev_slider fullscreenbanner" data-version="5.4.7">
+          <ul>
+            {%for application in applications%}
+            <li data-transition="fade" data-thumb="{{application.image.url}}"><img src="{{application.image.url}}" alt="" />
+            <!-- /.tp-caption -->
+              <div class="tp-caption font-weight-500 color-white" 
+                 data-x="['left','left','center','center']" 
+                 data-y="['middle','middle','middle','middle']" 
+                 data-hoffset="['650','670','0','0']"
+                 data-voffset="['50','110','-105','120']" 
+                 data-fontsize="['100','30','25','19']" 
+                 data-lineheight="['35','32','35','29']"  
+                 data-width="['480','340','400','340']" 
+                 data-textAlign="['left','left','center','center']" 
+                 data-whitespace="['normal','normal','normal','normal']" 
+                 data-frames='[{"delay":1000,"speed":1200,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                 data-responsive="on" 
+                 data-responsive_offset="on" style="z-index: 9;">{{application.description}}  
+            </div></li>
+           {%endfor%}
+          </ul>
+          <div class="tp-static-layers">
+            <div class="tp-caption tp-static-layer font-weight-700 color-white" 
+               data-x="['left','left','center','center']" 
+               data-y="['middle','middle','middle','middle']" 
+               data-hoffset="['-100','0','0','0']" 
+               data-voffset="['-250','-100','-260','-90']"
+               data-fontsize="['40','70','70','46']" 
+               data-lineheight="['80','80','80','56']" 
+               data-width="['600','600','600','340']" 
+               data-textAlign="['center','center','center','center']" 
+               data-whitespace="['normal','normal','normal','normal']" 
+               data-frames='[{"delay":500,"speed":2000,"frame":"0","from":"sX:0.9;sY:0.9;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"sX:0.9;sY:0.9;opacity:0;fb:20px;","ease":"Power3.easeInOut"}]' 
+               data-responsive="on" 
+               data-responsive_offset="on" 
+               data-startslide="0" 
+               data-endslide="7" style="z-index: 9;">{{heading_application.title}} 
+          </div>
+          <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+      </div>
+        <!-- /.rev_slider -->
+      </div>
+      <!-- /.rev_slider_wrapper -->
+    </div>
+    <!-- /.wrapper -->
+<div class="space150"></div>
+
+
+        <h3 class="display-3 text-center">{{title_media.title}}</h3> 
+
+<div id="mediacov1" class="wrapper  white-wrapper" style="padding-top: 40px;">
+      <div class="rev_slider_wrapper fullwidth-container dark-spinner dark-nav">
+        <div id="slider14" class="rev_slider fullwidthbanner" data-version="5.4.7">
+          <ul>
+            {%for media in medias%}
+            <li data-transition="fade" data-thumb="">
+              <div class="tp-caption tp-rotate bg-opacity-default tp-shape tp-shapewrapper" 
+                 data-x="['center','center','center','center']" 
+                 data-y="['middle','middle','middle','middle']" 
+                 data-hoffset="['0','0','0','0']" 
+                 data-voffset="['0','0','0','0']"
+               data-visibility="['on','on','on','off']"
+                 data-width="3000" 
+                 data-height="900" 
+                 data-whitespace="nowrap" 
+                 data-type="shape" 
+                 data-basealign="slide" 
+                 data-responsive_offset="off" 
+                 data-responsive="off" 
+                 data-frames='[{"from":"opacity:0;","speed":2000,"to":"o:1;","delay":0,"ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"to":"opacity:0;","ease":"nothing"}]' style="z-index: 5;">
+            </div>
+        <!-- /.tp-caption -->
+              <div class="tp-caption" 
+                 data-x="left" 
+                 data-y="middle" 
+                 data-hoffset="['230','380','310','310']" 
+                 data-voffset="['-20','20','-10','-10']" 
+                 data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                 data-visibility="['on','on','on','off']" 
+                 data-width="none" 
+                 data-height="none" 
+                 data-type="image" 
+                 data-responsive_offset="on" style="z-index: 5;"><img 
+                 data-lazyload="" src="{{media.logo.url}}" 
+                 data-ww="['250','550','550','550']" 
+                 data-hh="auto" alt="" />
+            </div>
+            <div class="tp-caption font-weight-400 color-dark" 
+                 data-x="['left','left','left','left']" 
+                 data-y="top" 
+                 data-hoffset="['600','50','30','30']"  
+                 data-voffset="['0','30','30','60']" 
+                 data-fontsize="['22','26','24','24']" 
+                 data-lineheight="['36','36','34','34']" 
+                 data-width="['360','360','330','330']" 
+                 data-textAlign="['left','left','left','left']" 
+                 data-whitespace="['normal','normal','normal','normal']" 
+                 data-frames='[{"delay":500,"speed":1200,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]' 
+                 data-responsive="on" 
+                 data-responsive_offset="on" style="z-index: 9;">{{media.date}}<br><i class="icofont-minus"></i>
+            </div>
+
+        <!-- /.tp-caption -->
+              <div class="tp-caption font-weight-600 color-dark" 
+                 data-x="['left','left','left','left']" 
+                 data-y="middle" 
+                 data-hoffset="['600','50','30','30']" 
+                 data-voffset="['-35','-80','-80','-50']" 
+                 data-fontsize="['30','40','38','38']" 
+                 data-lineheight="['50','50','48','48']" 
+                 data-width="['650','350','330','330']" 
+                 data-textAlign="['left','left','left','left']" 
+                 data-whitespace="['normal','normal','normal','normal']" 
+                 data-frames='[{"delay":500,"speed":1200,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                 data-responsive="on" 
+                 data-responsive_offset="on" style="z-index: 9;">{{media.heading}}<br> <a href="{{media.hyperlink}}" style="font-size: 25px;">{{media.hyperlink_name}}</a>
+            </div>
+        <!-- /.tp-caption -->
+            </li>
+           {%endfor%}
+          </ul>
+          <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+        <!-- /.rev_slider -->
+      </div>
+      <!-- /.rev_slider_wrapper -->
+    </div>
+    <!-- /.wrapper -->
+
+    <div id="mediacov2" class="wrapper light-wrapper">
+      <div class="container inner">
+        <div id="response" class="carousel owl-carousel clients" data-aos="fade-left" data-aos-delay="300" data-margin="30" data-loop="true" data-dots="false" data-autoplay="true" data-autoplay-timeout="3000" data-responsive='{"0":{"items": "3"}, "768":{"items": "4"}, "992":{"items": "5"}, "1140":{"items": "6"}}'>
+          {%for media in medias%}
+          <div class="item pl-15 pr-15"><a href="{{media.hyperlink}}"><img src="{{media.logo.url}}" alt="" /></a></div>
+          {%endfor%}
+          
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <h2 class="title-color color-gray text-center">{{company_name.company_name}}</h2>
+        <div class="space50"></div>
+        <div class="carousel owl-carousel clients" data-aos="fade-left" data-aos-delay="300" data-margin="30" data-loop="true" data-dots="false" data-autoplay="true" data-autoplay-timeout="3000" data-responsive='{"0":{"items": "3"}, "768":{"items": "4"}, "992":{"items": "5"}, "1140":{"items": "6"}}'>
+          {%for company in companies%}
+          <div class="item pl-15 pr-15"><img src="{{company.logo.url}}" alt="" /></div>
+          {%endfor%}
+          
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+    
+{% endblock %}
+    
+    
+     
