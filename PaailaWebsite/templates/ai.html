@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load embed_video_tags%}
+{%block content%}
+    <!-- /.offcanvas-info -->
+    <br>
+    <br><br>
+    <div class="wrapper light-wrapper page-title-wrapper" >
+      <div class="container inner text-center">
+        <h1 class="page-title">{{ai.title}}</h1>
+        <p class="lead" style="font-family: 'Nunito', sans-serif !important;"> {{ai.description | safe}} </p>
+      </div>
+      <!-- /.container -->
+    </div>
+    <div class="wrapper light-wrapper"  style="margin-top: -70px;">
+      <div class="container inner">
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-10 offset-lg-1">
+            {%video ai.video '100% x 500'%}
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+
+
+<div class="space50"></div>
+<center><p class="lead" style="font-size: 23px;">{{ai.description_after_video}}</p></center>
+        <h3 class="display-3 text-center">{{ai.heading}}</h3>   
+        <div class="space50"></div> 
+    <div class="wrapper bg-opacity-default" style="margin-top: -40px;">
+      <div class="container inner">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row gutter-60 text-center">
+          {%for service in services%}
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0"><span class="icon icon-blob icon-blob-blue color-blue mb-30"><img src="{{service.image.url}}" height="250px" width="350px"></span>
+                  <h3>{{service.title}}</h3>
+                  <p class="lead">{{service.description}}</p>
+                  <a href="{{service.hyperlink}}"><h5 class="from-top text-uppercase mb-0">{{service.button_name}}</h5></a>
+                          
+                </div>
+          {%endfor%}
+
+          <!--/column -->
+        </div>
+        <!--/.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+{%endblock%}

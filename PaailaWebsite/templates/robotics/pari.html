@@ -1,0 +1,165 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load embed_video_tags%}
+{%block content%}
+
+<!-- /.wrapper -->
+<br>
+<br>
+{%if top_content%}
+<div class="wrapper light-wrapper page-title-wrapper">
+  <div class="container inner text-center">
+    <p class="lead">{{top_content.description}} </p>
+    <h1 class="page-title">{{top_content.title}}</h1>
+  </div>
+  <!-- /.container -->
+</div>
+<center>
+  {%video top_content.youtube_link '75% x 500'%}
+
+</center>
+{%endif%}
+
+<br><br><br><br>
+{%if deploys%}
+<div class="container-fluid" style="background-color:rgba(128, 128, 128, 0.021);">
+  <div>
+    {%for deploy in deploys%}
+    {%if forloop.counter == 1%}
+    <h5 class="text-center pt-5">{{deploy.heading}} </h5>
+    <h2 class="text-center"> {{deploy.title}} </h2>
+    {%endif%}
+    {%endfor%}
+  </div>
+  <div class="row">
+
+    {%for deploy in deploys%}
+    
+    <div class="{%if deploys_count <= 4%}col-lg-{{deploys_count}} col-md-{{deploys_count}} {%else%} col-lg-3 col-md-3 {%endif%} col-12">
+      <div class="card" style="border:none !important;">
+        <img src="{%static 'style/images/robotics/Thumbnails_Design (1).png'%}"
+          style="background-color:rgba(0, 0, 255, 0.418);" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center"> <b>Design </b></h5>
+          <p class="card-text">State of the art tools are used to design an impeccable Pari for you. Look out for her
+            charming eyes!</p>
+
+
+        </div>
+      </div>
+
+    </div>
+    {%endfor%}
+
+
+  </div>
+
+
+  <br><br>
+</div>
+{%endif%}
+
+{%if everythings%}
+<div class="wrapper light-wrapper">
+  <div class="container inner text-justify">
+    {%for every in everythings%}
+      {%if forloop.counter == 1%}
+        <h5 class="text-center mt-5"> {{every.heading}}</h5>
+        <h3 class="text-center">{{every.title}}</h3>
+      {%endif%}
+    {%endfor%}
+    {%for every in everythings%}
+    {%if every.push_image_to_left%}
+    <div class="row no-gutters d-flex align-items-center" data-aos="fade-up">
+      <div class="col-lg-7 text-center">
+        <figure class="rounded"><img src="{{every.image.url}}" alt="" /></figure>
+      </div>
+      <!--/column -->
+
+      <div class="space40 d-lg-none"></div>
+      <div class="col-lg-4 ml-auto">
+        <h2 class="section-title text-left">{{every.category_title}}</h2>
+        <p class="lead">{{every.category_description}}</p>
+        <div class="space10"></div>
+        <a href="#" class="btn mb-0">Purchase </a>
+      </div>
+      <!-- /column -->
+    </div>
+    <!--/.row -->
+   {%else%}
+    <div class="row no-gutters d-flex align-items-center" data-aos="fade-up">
+      <div class="col-lg-7 order-lg-2 ml-auto text-center">
+        <figure class="rounded"><img src="{{every.image.url}}" alt="" /></figure>
+      </div>
+      <!--/column -->
+      <div class="space40 d-lg-none"></div>
+      <div class="col-lg-4 ml-auto">
+        <h2 class="section-title text-left">{{every.category_title}}</h2>
+        <p class="lead">{{every.category_description}}</p>
+        <div class="space10"></div>
+        <a href="#" class="btn mb-0">Advertise</a>
+      </div>
+      <!--/column -->
+    </div>
+    <!--/.row -->
+    {%endif%}
+    {%endfor%}
+
+  </div>
+  <!-- /.container -->
+</div>
+{%endif%}
+
+</div>
+<!--/.item-inner -->
+</div>
+<!-- /.box -->
+</div>
+
+</div>
+<!-- /.box -->
+</div>
+<!-- /.item -->
+
+</div>
+<!-- /.owl-carousel -->
+</div>
+<!-- /.grid-view -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /.wrapper -->
+{%if how_we_do%}
+<div class="container-fluid" style="background-color:rgba(128, 128, 128, 0.021);">
+  <div>
+    {%for how in how_we_do%}
+    {%if forloop.counter == 1%}
+      <h5 class="text-center pt-5">{{how.heading}} </h5>
+      <h2 class="text-center"> {{how.title}} </h2>
+    {%endif%}
+    {%endfor%}
+  </div>
+  <div class="row">
+    {%for how in how_we_do%}
+    <div class="{%if how_count <= 4%}col-lg-{{how_count}} col-md-{{how_count}} {%else%} col-lg-3 col-md-3 {%endif%} col-12">
+      <div class="card" style="border:none !important;">
+        <img src="{{how.image.url}}"
+          style="background-color:rgba(0, 0, 255, 0.418);" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center"> <b>{{how.category_title}} </b></h5>
+          <p class="card-text">{{how.category_description}}</p>
+
+
+        </div>
+      </div>
+
+    </div>
+    {%endfor%}
+    
+  </div>
+
+
+
+</div>
+{%endif%}
+{%endblock%}

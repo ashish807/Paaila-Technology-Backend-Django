@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+
+    <div class="wrapper image-wrapper bg-image page-title-wrapper inverse-text" data-image-src="{{top_blog.blog_top_image.url}}">
+      <div class="container inner text-center">
+        <div class="space90"></div>
+        <h1 class="page-title">{{top_blog.blog_top_title}}</h1>
+        <p class="lead">{{top_blog.blog_top_description}}</p>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <br>
+    <br>
+    <aside class="col-lg-5 sidebar" style="float: right;">
+      <div class="sidebox widget">
+        <!-- <h3 class="widget-title">Search</h3> -->
+        <form class="search-form fields-white" action="{%url 'search'%}" method = "GET">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search something" name = "keyword">
+          </div>
+          <!-- /.form-group -->
+        </form>
+        <!-- /.search-form -->
+      </div>
+      </aside>
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <div class="blog grid grid-view">
+          <div class="row isotope">
+            {%for blog in blogs%}
+            <div class="item post grid-sizer col-md-6 col-lg-4">
+              <figure class="overlay overlay1 rounded mb-30"><a href="{{blog.get_url}}"> <img src="{{blog.image.url}}" alt="" /></a>
+                <figcaption>
+                  <h5 class="from-top mb-0">Read More</h5>
+                </figcaption>
+              </figure>
+              <div class="category"><a href="#" class="badge badge-pill bg-purple">{{blog.blog_type}}</a></div>
+              <h2 class="post-title"><a href="{{blog.get_url}}">{{blog.title}}</a></h2>
+              <div class="post-content">
+                <p>{{blog.short_description}}</p>
+              </div>
+              <!-- /.post-content -->
+              <div class="meta mb-0"><span class="date"><i class="jam jam-clock"></i>{{blog.modified_date}}</span></div>
+              <hr style="height: 3px; color: black;">
+            </div>
+            
+            <!-- /.post -->
+            {%endfor%}
+            
+ 
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.blog -->
+        <div class="space30 d-block d-md-none"></div>
+        <div class="pagination">
+          {%if blogs.has_other_pages%}
+          <ul>
+            {%if blogs.has_previous%}
+              <li class="active"><a href="?page={{blogs.previous_page_number}}" class="pl-0"><i class="jam jam-arrow-left"></i></a></li>
+            {%else%}
+              <li><a href="#" class="pl-0"><i class="jam jam-arrow-left"></i></a></li>
+            {%endif%}
+            {%for i in blogs.paginator.page_range%}
+              {%if blogs.number == i %}
+                <li class="active"><a href="#"><span>{{i}}</span></a></li>
+              {%else%}
+                <li class="active"><a href="?page={{i}}"><span>{{i}}</span></a></li>
+              {%endif%}
+              {%endfor%}
+            {%if blogs.has_next%}
+              <li class="active"><a href="?page={{blogs.next_page_number}}" class="pr-0"><i class="jam jam-arrow-right"></i></a></li>
+            {%else%}
+              <li ><a href="#" class="pr-0"><i class="jam jam-arrow-right"></i></a></li>
+            {%endif%}
+            </ul>
+            {%endif%}
+        </div>
+        <!-- /.pagination -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+{%endblock%}

@@ -1,0 +1,214 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+    <!-- /.offcanvas-info -->
+    <div class="wrapper image-wrapper bg-image page-title-wrapper inverse-text" data-image-src="{{about.top_image.url}}">
+      <div class="container inner text-center">
+        <div class="space90"></div>
+        <h1 class="page-title" style="color: black;"> {{about.top_title}}</h1>
+        <p class="lead" style="color: black;">{{about.top_sub_title}}</p>
+        <h1>&nbsp <br> &nbsp</h1>
+        <h1>&nbsp <br> &nbsp</h1>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper white-wrapper">
+      <div class="container inner">
+        {%for abouts in about_text_images%}
+         {%if abouts.push_image_to_left%}
+          
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <figure><img src="#" srcset="{{abouts.image.url}} 1x, {{abouts.image.url}} 2x" alt="" /></figure>
+              </div>
+              <!--/column -->
+              <div class="space20 d-md-none"></div>
+              <div class="space50 d-none d-md-block d-lg-none"></div>
+              <div class="col-lg-6 pl-60 pl-md-15">
+                <h3 class="display-2">{{abouts.title}}</h3>
+                <div class="space20"></div>
+                <p>{{abouts.description}}</p>
+                <div class="space10"></div>
+                <a href="{{abouts.hyperlink}}" class="btn btn-purple">{{abouts.button_name}}</a>
+              </div>
+              <!--/column -->
+            </div>
+            <div class="space120"></div>
+            {%else%}
+          
+            
+              <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                  <figure><img src="#" srcset="{{abouts.image.url}} 1x, {{abouts.image.url}} 2x" alt="" /></figure>
+                </div>
+                <!--/column -->
+                <div class="space20 d-md-none"></div>
+                <div class="space50 d-none d-md-block d-lg-none"></div>
+                <div class="col-lg-6 pr-60 pr-md-15">
+                  <h3 class="display-2">{{abouts.title}}</h3>
+                  <div class="space20"></div>
+                  <p>{{abouts.description}}</p>
+                  <div class="space10"></div>
+                  <a href="{{abouts.hyperlink}}" class="btn btn-yellow">{{abouts.button_name}}</a>
+                </div>
+                <!--/column -->
+              </div>
+            <!--/.row -->
+            <div class="space120"></div>
+          
+           
+          {%endif%}
+        {%endfor%}
+        <!--/.row -->
+        
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper image-wrapper bg-image inverse-text" data-image-src="{%static 'style/images/art/bg4.jpg'%}">
+      <div class="container inner">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <h3 class="display-2 text-center">{{progress.heading}}</h3>
+            <div class="space30"></div>
+            <div class="row text-center">
+              {%for pro in progresses%}
+              <div class="col-md-6 col-lg-3">
+                <div class="progressbar circle red" data-value="{{pro.percentage_progress}}"></div>
+                <h5>{{pro.title}}</h5>
+                <p>{{pro.description}}</p>
+              </div>
+              <!-- /column -->
+              {%endfor%}
+              
+              <!-- /column -->
+              <!-- <div class="space30 d-none d-md-block d-lg-none"></div> -->
+              
+              <!-- /column -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper white-wrapper">
+      <div class="container inner text-center">
+        <h3 class="display-2">{{working_step.heading}}</h3>
+        <div class="space30"></div>
+        <div class="row gutter-60 d-flex align-items-center">
+          
+            <div class="col-md-6 col-lg-3 order-lg-1">
+              {%for work in working_steps%}
+                {% if work.id <= 2 %}
+                  <h4>{{work.id}}. {{work.title}}</h4>
+                  <p>{{work.description}}</p>
+                  <div class="space20"></div>
+                {%endif%}
+              {%endfor%}
+            </div>
+          
+          
+          <!--/column -->
+          <div class="col-lg-6 order-sm-first order-lg-2">
+            <figure><img src="#" srcset="{{working_step.image.url}} 1x, {{working_step.image.url}} 2x" alt="" /></figure>
+            <div class="space50 d-none d-md-block d-lg-none"></div>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3 order-lg-3">
+            {%for work in working_steps%}
+                {% if work.id > 2 %}
+                  <h4>{{work.id}}. {{work.title}}</h4>
+                  <p>{{work.description}}</p>
+                  <div class="space20"></div>
+              {%endif%}
+            {%endfor%}
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper gray-wrapper">
+      <div class="container inner">
+        <h2 class="section-title mb-40 text-center">{{team.heading}}</h2>
+        <div class="grid-view boxed">
+          <div class="row text-center">
+            {%for tem in teams%}
+                <div class="col-md-6 col-lg-3 pb-10">
+                  <div class="box bg-white shadow">
+                    <div class="img-blob blob1 mb-20"><img src="{{tem.image.url}}" style="width: 7rem" alt="" /></div>
+                    <h5 class="mb-15">{{tem.name}}</h5>
+                    <div class="meta mb-10">{{tem.designation}}</div>
+                    <p class="mb-10">{{tem.description}}</p>
+                    <ul class="social social-s ml-auto mb-10">
+                      <li><a href="{tem.twitter_link}}"><i class="jam jam-twitter"></i></a></li>
+                      <li><a href="{{tem.facebook_link}}"><i class="jam jam-facebook"></i></a></li>
+                      <li><a href="{{tem.instagram_link}}"><i class="jam jam-instagram"></i></a></li>
+                    </ul>
+                  </div>
+                  <!--/.box -->
+                </div>
+                <!--/column -->
+                
+                <div class="space30 d-none d-md-block d-lg-none"></div>
+            {%endfor%}
+           </div>
+          <!--/.row -->
+        </div>
+        <!--/.grid-view -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+
+
+
+    
+    <div class="wrapper white-wrapper">
+      <div class="container inner">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <figure><img src="#" srcset="{{subscribe.image.url}} 1x, {{subscribe.image.url}} 2x" alt="" /></figure>
+          </div>
+          <!--/column -->
+          <div class="space20 d-md-none"></div>
+          <div class="space50 d-none d-md-block d-lg-none"></div>
+          <div class="col-lg-6 pl-60 pl-md-15">
+            <h3 class="display-2">{{subscribe.heading}}</h3>
+            <div class="space30"></div>
+            <div class="row">
+              <div class="col-md-9">
+                <div class="newsletter-wrapper">
+                  <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll" class="input-group">
+                      <input type="email" value="" name="EMAIL" class="email form-control mb-0 mr-2 mb-sm-0" id="mce-EMAIL" placeholder="Email Address" required>
+                      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-rounded btn-default mr-0 mb-0 pull-right">Join</button>
+                      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                      <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_ddc180777a163e0f9f66ee014_056957de28" tabindex="-1" value="">
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.newsletter-wrapper -->
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+ {%endblock%}

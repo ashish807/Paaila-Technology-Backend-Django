@@ -1,0 +1,231 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+    <!-- /.offcanvas-info -->
+    <br>
+    <br>
+    <div class="wrapper light-wrapper">
+      <div class="container inner pt-80">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="blog classic-view">
+              <div class="post mb-0">
+                <figure class="rounded"><img src="{{single_blog.image.url}}" alt="" /></figure>
+                <div class="space40"></div>
+                <div class="post-content">
+                  <div class="category text-center"><a href="#" class="badge badge-pill bg-hibiscus">{{single_blog.blog_type}}</a></div>
+                  <h2 class="post-title text-center">{{single_blog.title}}</h2>
+                  <div class="meta text-center"><span class="date"><i class="jam jam-clock"></i>{{single_blog.created_date}}</span><span class="author"><i class="jam jam-user"></i><a href="#">By {{single_blog.author_name}}</a></span><span class="comments"><i class="jam jam-message-alt"></i><a href="#">3 Comments</a></span></div>
+                  {{single_blog.description|safe}}
+                  <div class="space30"></div>
+                  
+                  
+                  <!--/.post-gallery -->
+                  <div class="clearfix"></div>
+                  <div class="space40"></div>
+                  <div class="space10"></div>
+                  <div class="d-lg-flex justify-content-between align-items-center meta-footer">
+                  
+                    <div class="space20 d-lg-none"></div>
+                    <div class="d-flex align-items-center">
+                      <p class="pr-20 mb-0"><strong>Share on:</strong></p>
+                      <ul class="social social-mute">
+                        <li><a href="#"><i class="jam jam-facebook"></i></a></li>
+                        <li><a href="#"><i class="jam jam-twitter"></i></a></li>
+                        <li><a href="#"><i class="jam jam-pinterest"></i></a></li>
+                      </ul>
+                      <!-- /.social -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /.post-content -->
+              </div>
+              <!-- /.post -->
+            </div>
+            <!-- /.blog -->
+          </div>
+          <!-- /column -->
+          <div class="space30 d-none d-md-block d-lg-none"></div>
+          <aside class="col-lg-4 sidebar">
+            
+           
+            <div class="sidebox widget">
+              <!-- <h3 class="widget-title">About Us</h3>
+              <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum. Nulla vitae elit libero, a pharetra augue. Donec id elit.</p> -->
+              <ul class="social social-color social-s">
+                <li><a href="#"><i class="jam jam-twitter"></i></a></li>
+                <li><a href="#"><i class="jam jam-facebook"></i></a></li>
+                <li><a href="#"><i class="jam jam-pinterest"></i></a></li>
+                <li><a href="#"><i class="jam jam-vimeo"></i></a></li>
+                <li><a href="#"><i class="jam jam-instagram"></i></a></li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <!-- /.widget -->
+            <div class="sidebox widget">
+              <h3 class="widget-title">Popular Posts</h3>
+              <ul class="image-list">
+                {%for pos in recent_post%}
+                <li>
+                  <figure class="rounded"><a href="{{pos.get_url}}"><img src="{{pos.image.url}}" alt="" /></a></figure>
+                  <div class="post-content">
+                    <h6 class="post-title"> <a href="{{pos.get_url}}">{{pos.title}}</a> </h6>
+                    <div class="meta"><span class="date"><i class="jam jam-clock"></i>{{pos.modified_date}}</span></div>
+                  </div>
+                </li>
+                {%endfor%}
+                
+              </ul>
+              <!-- /.image-list -->
+            </div>
+            <!-- /.widget -->
+            <div class="sidebox widget">
+              <h3 class="widget-title">Categories</h3>
+              <ul class="icon-list">
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Lifestyle (21)</a></li>
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Photography (19)</a></li>
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Journal (16)</a></li>
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Works (7)</a></li>
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Conceptual (12)</a></li>
+                <li class="bullet-default"><i class="jam jam-chevron-right"></i><a href="#">Videography (14)</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+            
+           
+          </aside>
+          <!-- /column .sidebar -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper gray-wrapper">
+      <div class="container inner">
+        <div class="row">
+          <div class="col-md-4">
+            <figure class="rounded"><img alt="" src="{{single_blog.author_image.url}}" /></figure>
+          </div>
+          <!--/column -->
+          <div class="col-md-6">
+            <h4>{{single_blog.author_name}}</h4>
+            <p class="mb-10">{{single_blog.author_description}}</p>
+            <ul class="social">
+              <li><a href="#"><i class="jam jam-twitter"></i></a></li>
+              <li><a href="#"><i class="jam jam-facebook"></i></a></li>
+              <li><a href="#"><i class="jam jam-pinterest"></i></a></li>
+              <li><a href="#"><i class="jam jam-vimeo"></i></a></li>
+              <li><a href="#"><i class="jam jam-instagram"></i></a></li>
+            </ul>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <h3 class="mb-30">You Might Also Like</h3>
+        <div class="grid-view">
+          <div class="carousel owl-carousel" data-margin="30" data-dots="true" data-autoplay="false" data-autoplay-timeout="5000" data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "3"}}'>
+            {%if blog_type != None%}
+            {%for blog in blog_type%}
+            <div class="item">
+              <figure class="overlay overlay1 rounded mb-30"><a href="{{blog.get_url}}"> <img src="{{blog.image.url}}" alt="" /></a>
+                <figcaption>
+                  <h5 class="from-top mb-0">Read More</h5>
+                </figcaption>
+              </figure>
+              <div class="category"><a href="#" class="badge badge-pill bg-purple">{{blog.blog_type}}</a></div>
+              <h2 class="post-title"><a href="blog-post.html">{{blog.title}}</a></h2>
+              <div class="meta mb-0"><span class="date"><i class="jam jam-clock"></i>{{blog.modified_date}}</span></div>
+            </div>
+            <!-- /.item -->
+            {%endfor%}
+            {%endif%}
+
+          </div>
+          <!-- /.owl-carousel -->
+        </div>
+        <!-- /.grid-view -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper gray-wrapper">
+      <div class="container inner">
+        <div id="comments">
+          <h3>{{comment_count}} Comments</h3>
+          <ol id="singlecomments" class="commentlist">
+            {%for i in cmt%}
+              <li>
+                
+                    <div class="message">
+                      <figure class="user rounded"><img alt="" src="https://i.pinimg.com/originals/07/a5/72/07a5723295644be79473ff6dd554463b.png" /></figure>
+                      <div class="message-inner">
+                        <h6 class="comment-author"><a href="#">{{i.name}}</a></h6>
+                        <p>{{i.comment}}</p>
+                        <div class="meta"> <span class="date">{{i.created_date}}</span></div>
+                      </div>
+                    </div>
+                 
+                  
+                
+              </li>
+           {%endfor%}
+          </ol>
+        </div>
+        <div class="pagination">
+          {%if cmt.has_other_pages%}
+          <ul>
+            {%if cmt.has_previous%}
+              <li class="active"><a href="?page={{cmt.previous_page_number}}" class="pl-0"><i class="jam jam-arrow-left"></i></a></li>
+            {%else%}
+              <li><a href="#" class="pl-0"><i class="jam jam-arrow-left"></i></a></li>
+            {%endif%}
+            {%for i in cmt.paginator.page_range%}
+              {%if cmt.number == i %}
+                <li class="active"><a href="#"><span>{{i}}</span></a></li>
+              {%else%}
+                <li class="active"><a href="?page={{i}}"><span>{{i}}</span></a></li>
+              {%endif%}
+              {%endfor%}
+            {%if cmt.has_next%}
+              <li class="active"><a href="?page={{cmt.next_page_number}}" class="pr-0"><i class="jam jam-arrow-right"></i></a></li>
+            {%else%}
+              <li ><a href="#" class="pr-0"><i class="jam jam-arrow-right"></i></a></li>
+            {%endif%}
+            </ul>
+            {%endif%}
+        </div>
+        <!-- /#comments -->
+        <div class="space80"></div>
+        {% include 'includes/alerts.html' %}
+        <h3>Would you like to share your thoughts?</h3>
+        <p>Your email address will not be published. Required fields are marked *</p>
+
+        <div class="space20"></div>
+        <form  action="{%url 'blog_content' single_blog.slug %}" method="POST">
+          {%csrf_token%}
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name*" name="name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email*" name="email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Phone*" name="phone" maxlength="15" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Enter your comment here..." name="comment" maxlength="500" required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+        <!-- /.comment-form -->
+      </div>
+      <!-- /.container -->
+    </div>
+{%endblock%}

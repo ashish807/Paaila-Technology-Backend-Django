@@ -1,0 +1,284 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+    <div class="wrapper image-wrapper bg-image page-title-wrapper inverse-text"
+      data-image-src="{{career.top_image.url}}">
+      <div class="container inner text-center">
+        <div class="space90"></div>
+        {%if career.top_description%}
+          <h1 class="page-title">&nbsp
+            {{career.top_description}} <br>
+          &nbsp
+        </h1>
+      {%else%}
+        <h1 class="page-title">&nbsp
+          <br>
+        &nbsp
+      </h1>
+      {%endif%}
+
+        <!-- <p class="lead">Aenean lacinia bibendum nulla sed consectetur</p> -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper gray-wrapper">
+      <div class="container inner">
+        <h1 class="page-title text-center">{{career.top_title}}</h1>
+        <h2 class="display-3 text-center">{{career.short_note}} <span class="typer color-default" data-delay="100" data-delim=":"
+            data-words="{{career.short_note_animated_text}}"></span><span class="cursor color-default"
+            data-owner="typer"></span></h2>
+        <p class="lead text-center">{{career.description_of_short_note}}
+        </p>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+  </div>
+  <div class="wrapper light-wrapper">
+    <div class="container inner">
+      <h2 class="section-title mb-40 text-center">CURRENT OPENING</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Position</th>
+            <th scope="col">Title</th>
+            <th scope="col">Location</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for opening in openings%}
+          <tr>
+            <th scope="row">{{opening.id}}</th>
+            <td>{{opening.position}}</td>
+            <td>{{opening.title}}</td>
+            <td>{{opening.location}}</td>
+            <td>{{opening.payment}}</td>
+            <td>{{opening.Deadline}}</td>
+          </tr>
+        {%endfor%}
+        </tbody>
+      </table>
+      <!-- /.card -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->
+  <div class="wrapper gray-wrapper">
+    <div class="container inner">
+      <h2 class="section-title mb-40 text-center">{{work_head.heading}}</h2>
+      <ul class="nav nav-pills nav-tabs nav-tabs-centered d-flex justify-content-center text-center">
+
+        
+        {%for work in works%}
+          {%if work.id != 1%}
+            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab{{work.title_id}}">
+
+                <div class="icon color-dark"><i class="icofont-safety"></i></div><span>{{work.title}} 
+                </span>
+              </a> </li>
+          {%else%}
+            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab{{work_head.title_id}}">
+              <div class="icon color-dark"><i class="icofont-safety"></i></div><span>{{work_head.title}} 
+              
+              </span>
+            </a> </li>
+          {%endif%}
+          {%endfor%}
+
+      </ul>
+      <!-- /.nav-tabs -->
+      <div class="space80"></div>
+      <div class="tab-content">
+
+        
+
+
+
+       {%for work in work_contents%}
+     
+        {%if work.id != 1%}
+          
+            {% if forloop.counter|divisibleby:2 %}
+                <div class="tab-pane" id="tab{{work.working_with_us.title_id}}">
+                    <div class="row align-items-center">
+                     
+                      <!--/column -->
+                      <div class="col-md-6">
+                        <div class="pl-15 pl-sm-15 h-100">
+                        
+                          <h2>{{work.title}}</h2>
+                          <p>{{work.descriptions}}</p>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="pr-15 pr-sm-15 h-100">
+                          <figure><img src="#" srcset="{{work.image.url}} 1x, {{work.image.url}} 2x" alt="" /></figure>
+                        </div>
+                      </div>
+                      <!--/column -->
+                    </div>
+                    <!--/.row -->
+                  </div>
+              {% else %}
+                <div class="tab-pane" id="tab{{work.working_with_us.title_id}}">
+                  <div class="row align-items-center">
+                    
+                    <!--/column -->
+                    <div class="col-md-6">
+                      <div class="pr-15 pr-sm-15 h-100">
+                        <figure><img src="#" srcset="{{work.image.url}} 1x, {{work.image.url}} 2x" alt="" /></figure>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="pl-15 pl-sm-15 h-100">
+                      
+                        <h2>{{work.title}}</h2>
+                        <p>{{work.descriptions}}</p>
+                        
+                      </div>
+                    </div>
+                 
+                    <!--/column -->
+                  </div>
+                  <!--/.row -->
+                </div>
+              {% endif %}
+          {%else%}
+            <div class="tab-pane show active" id="tab{{work_content_first.working_with_us.title_id}}">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <div class="pr-15 pr-sm-15 h-100">
+                    <figure><img src="#" srcset="{{work.image.url}} 1x, {{work.image.url}} 2x" alt="" /></figure>
+                  </div>
+                </div>
+                <!--/column -->
+    
+                <div class="col-md-6">
+                  <div class="pl-15 pl-sm-15 h-100">
+              
+                    <h2>{{work_content_first.title}}</h2>
+                    <p>{{work_content_first.descriptions}}
+                      </p>
+                    
+                  </div>
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+            </div>
+          {%endif%}
+        {%endfor%}
+      
+      </div>
+      <!-- /.tab-content -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->
+  <div class="wrapper light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <h2 class="section-title text-center">Apply for internship</h2>
+          <!-- <p class="text-center">Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus
+            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat.
+            Praesent commodo cursus.</p> -->
+          <div class="space30"></div>
+          {% include 'includes/alerts.html' %}
+          <form  method="post" action="{%url 'career'%}" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="messages"></div>
+            <div class="controls">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_name" type="text" name="full_name" class="form-control" placeholder="Name *"
+                      required="required" data-error="First Name is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Email *"
+                      required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_address" type="text" name="address" class="form-control" placeholder="Address *"
+                      required="required" data-error="Address is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_phone" type="text" name="phone" class="form-control" placeholder="Phone *"  required="required" data-error="Phone number is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_address" type="text" name="position" class="form-control" placeholder="position"
+                      required="required" data-error="Position is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input id="form_phone" type="text" name="title" class="form-control" placeholder="title"  required="required" data-error="Title is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <p>Upload CV</p>
+                <input id="form_resume" type="file" name="resume" class="" placeholder="upload cv*"  required="required" data-error="Resume is required.">
+              </div>
+              
+              <div class="form-row">
+                <div class="col-md-12" style="margin-top: 20px;">
+                  <div class="form-group">
+                    <textarea id="form_message" name="strength" class="form-control" placeholder="Your Strength *" rows="4"
+                      required="required" data-error="Message is required."></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" class="btn btn-send" value="Send message">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12">
+                  <p class="text-muted"><strong>*</strong> These fields are required.</p>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- /form -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->
+  <!-- <div class="google-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4564967931838!2d-122.03250858386237!3d37.33169997984258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5b6e94ffe23%3A0x63bb79532baa6af4!2sApple+Campus!5e0!3m2!1sen!2str!4v1553850783971!5m2!1sen!2str"
+      style="width:100%; height: 500px; border:0" allowfullscreen></iframe>
+  </div> -->
+  <!--/.google-map -->
+{%endblock%}
