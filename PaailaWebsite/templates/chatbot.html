@@ -1,0 +1,218 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+    <!-- /.offcanvas-info -->
+    <div class="wrapper bg-opacity-default">
+      <div class="rev_slider_wrapper fullwidth-container dark-spinner dark-nav">
+        <div id="slider11" class="rev_slider fullwidthbanner" data-version="5.4.7">
+          <ul>
+          {%for s_image in slidings%}
+     
+              <li data-transition="fade" data-thumb=""><img src="{%static 'style/images/dummy.png' %}" data-bgcolor="#fff" alt="" />
+                <div class="tp-caption tp-rotate bg-opacity-default tp-shape tp-shapewrapper" 
+                  data-x="['center','center','center','center']" 
+                  data-y="['middle','middle','middle','middle']" 
+                  data-hoffset="['0','0','0','0']" 
+                  data-voffset="['0','0','0','0']"
+                data-visibility="['on','on','on','off']"
+                  data-width="3000" 
+                  data-height="900" 
+                  data-whitespace="nowrap" 
+                  data-type="shape" 
+                  data-basealign="slide" 
+                  data-responsive_offset="off" 
+                  data-responsive="off" 
+                  data-frames='[{"from":"opacity:0;","speed":2000,"to":"o:1;","delay":0,"ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"to":"opacity:0;","ease":"nothing"}]' style="z-index: 5;">
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption" 
+                  data-x="left" 
+                  data-y="middle" 
+                  data-hoffset="['420','380','310','310']" 
+                  data-voffset="['20','20','-10','-10']" 
+                  data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                  data-visibility="['on','on','on','off']" 
+                  data-width="none" 
+                  data-height="none" 
+                  data-type="image" 
+                  data-responsive_offset="on" style="z-index: 5;"><img 
+                  data-lazyload="" src="{{s_image.image.url}}"
+                  data-ww="['750','550','550','550']" 
+                  data-hh="auto" alt="" />
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption font-weight-600 color-dark" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']" 
+                  data-voffset="['-80','-80','-80','-50']" 
+                  data-fontsize="['40','40','38','38']" 
+                  data-lineheight="['50','50','48','48']" 
+                  data-width="['350','350','330','330']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-whitespace="['normal','normal','normal','normal']" 
+                  data-frames='[{"delay":1000,"speed":1200,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;">{{s_image.heading}} 
+              </div>
+          <!-- /.tp-caption -->
+                <div class="tp-caption font-weight-400 color-dark" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']"  
+                  data-voffset="['-20','30','30','60']" 
+                  data-fontsize="['26','26','24','24']" 
+                  data-lineheight="['36','36','34','34']" 
+                  data-width="['360','360','330','330']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-whitespace="['normal','normal','normal','normal']" 
+                  data-frames='[{"delay":1500,"speed":1200,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;">{{s_image.description}}  
+              </div>
+          <!-- /.tp-caption -->
+                  <a class="tp-caption btn btn-l btn-default scroll" 
+                  data-x="['left','left','left','left']" 
+                  data-y="middle" 
+                  data-hoffset="['100','50','30','30']" 
+                  data-voffset="['50','125','125','155']" 
+                  data-width="['auto','auto','auto','auto']" 
+                  data-textAlign="['left','left','left','left']" 
+                  data-frames='[{"delay":2000,"speed":1200,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' 
+                  data-responsive="on" 
+                  data-responsive_offset="on" style="z-index: 9;" href="{%url 'contact'%}">Contact Us 
+              </a>
+          <!-- /.tp-caption -->
+              </li>
+            {%endfor%}
+         
+
+          
+
+          </ul>
+          <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+        <!-- /.rev_slider -->
+      
+      </div>
+      <!-- /.rev_slider_wrapper -->
+    </div>
+    <!-- /.wrapper -->
+    <!-- /.wrapper -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <!-- <h2 class="section-title text-center">Portfolio Carousel with Details</h2> -->
+        <div class="grid-view boxed light-gallery-wrapper text-center">
+          <div class="carousel owl-carousel gap-small" data-margin="0" data-dots="true" data-autoplay="false" data-autoplay-timeout="5000" data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "3"}}'>
+           {%for ad in advertisement1%}
+              <div class="item">
+                <div class="item-inner">
+                  <div class="box bg-white shadow p-30">
+               
+                    <figure class="main overlay overlay2 rounded mb-30"><a href="{{ad.image.url}}" class="lightbox"> <img src="{{ad.image.url}}"   alt="" /></a></figure>
+                    <div class="post-content">
+                      <h2 class="post-title mb-10"><a href="portfolio-post.html">{{ad.title}}</a></h2>
+                      {%if ad.point1%}
+                      <p class="lead" style="text-align: left;"><i class="fas fa-check"></i> {{ad.point1}}</p>
+
+                      {%endif%}
+                      {%if ad.point2%}
+                      <p class="lead" style="text-align: left;"><i class="fas fa-check"></i> {{ad.point2}}</p>
+
+                      {%endif%}
+                      {%if ad.point3%}
+                      <p class="lead" style="text-align: left;"><i class="fas fa-check"></i> {{ad.point3}}</p>
+
+                      {%endif%}
+                      {%if ad.point4%}
+                      <p class="lead" style="text-align: left;"><i class="fas fa-check"></i> {{ad.point4}}</p>
+
+                      {%endif%}
+                      <p class="lead" style="text-align: left;"><a href="#">{{ad.benefit_for}}</a> </p>
+                      <div class="meta mb-0"></div>
+                    </div>
+                    <!-- /.post-content -->
+                  </div>
+                  <!--/.item-inner -->
+                </div>
+                <!-- /.box -->
+              </div>
+              <!-- /.item -->
+            {%endfor%}
+            
+          </div>
+          <!-- /.owl-carousel -->
+        </div>
+        <!-- /.grid-view -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <h1 class="section-title mb-40 text-center" style="font-size: 60px; font-weight: 1000;">{{client.title_1}}</h1>
+        <h1 class="section-title mb-40 text-center" style="font-size: 60px; font-weight: 1000;">{{client.title_2}}</h1>
+        <br>
+        <div class="carousel owl-carousel clients" data-margin="30" data-loop="true" data-dots="false" data-autoplay="true" data-autoplay-timeout="3000" data-responsive='{"0":{"items": "2"}, "768":{"items": "4"}, "992":{"items": "5"}, "1140":{"items": "6"}}'>
+          {%for clien in clients%}
+          <div class="item pl-15 pr-15"><img src="{{clien.image.url}}" alt="{{name_company}}" /></div>
+          {%endfor%}
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+      <!-- /.container -->
+    </div>
+
+  <div class="wrapper gray-wrapper">
+    <div class="container inner">
+      <h1 class="section-title mb-40 text-center" style="font-size: 60px; font-weight: 1000;">{{last_ad.title_1}}</h1>
+        <h1 class="section-title mb-40 text-center" style="font-size: 60px; font-weight: 1000;">{{last_ad.title_2}}</h1>
+        <center>
+          <p class="lead">{{last_ad.description_1}}</p>
+          <p class="lead">{{last_ad.description_2}}</p>
+        </center>
+        
+
+
+      <div class="grid-view boxed">
+        <div class="row text-center">
+        
+              <div class="col-md-6 col-lg-6 pb-10">
+                <div class="box bg-white shadow">
+                  <div class="img-blob blob1 mb-20"><img src="{{last_ad.image_1.url}}" style="width: 7rem" alt="" /></div>
+                  <h5 class="mb-15">{{tem.name}}</h5>
+                  <h5 class="mb-15">{{last_ad.image_title_2}}</h5>
+
+                  <p class="lead">{{last_ad.image_description_1}}</p>
+                  <div class="meta mb-10">{{last_ad.slogan_1}}</div>
+               
+                </div>
+                <!--/.box -->
+              </div>
+              <!--/column -->
+              
+              <div class="space30 d-none d-md-block d-lg-none"></div>
+              <div class="col-md-6 col-lg-6 pb-10">
+                <div class="box bg-white shadow">
+                  <div class="img-blob blob1 mb-20"><img src="{{last_ad.image_2.url}}" style="width: 7rem" alt="" /></div>
+                  <h5 class="mb-15">{{last_ad.image_title_2}}</h5>
+                  <p class="lead">{{last_ad.image_description_2}}</p>
+
+                  <div class="meta mb-10">{{last_ad.slogan_2}}</div>
+                  
+                </div>
+                <!--/.box -->
+              </div>
+              <!--/column -->
+  
+         </div>
+        <!--/.row -->
+      </div>
+      <!--/.grid-view -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->
+
+  
+{%endblock%}

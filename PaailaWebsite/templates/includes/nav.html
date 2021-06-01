@@ -2,27 +2,28 @@
 <div class="content-wrapper">
   <nav class="navbar absolute transparent navbar-expand-lg">
     <div class="container">
-      <div class="navbar-brand"><a href="{%url 'home'%}">
-        <img src="#" srcset="{{navFooter.paaila_black_logo.url}} 1x, {{navFooter.paaila_black_logo.url}} 2x" alt="" /></a>
+      <div class="navbar-brand">
+        <a href="{%url 'home'%}">
+        <img src="{{navFooter.paaila_black_logo.url}}" style="height: 5rem; width: 7.5rem;"  alt="" /></a>
       </div>
       <div class="navbar-other ml-auto order-lg-3">
         <ul class="navbar-nav flex-row align-items-center" data-sm-skip="true">
           <li class="nav-item">
             <div class="navbar-hamburger d-lg-none d-xl-none ml-auto"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
           </li>
-          <li class="dropdown search-dropdown position-static nav-item">
+          <!-- <li class="dropdown search-dropdown position-static nav-item">
             <a href="#" role="button" class="collapse-toggle" data-toggle="collapse" data-target=".search-dropdown-menu" aria-haspopup="true" aria-expanded="false"><i class="jam jam-search"></i></a>
             <div class="dropdown-menu search-dropdown-menu w-100 collapse">
               <div class="form-wrapper">
                 <form class="inverse-text">
                   <input type="text" class="form-control" placeholder="Search something">
                 </form>
-                <!-- /.search-form -->
+     
                 <i class="dropdown-close jam jam-close"></i>
               </div>
-              <!-- /.form-wrapper -->
+          
             </div>
-          </li>
+          </li> -->
           <li class="nav-item"><button class="plain" data-toggle="offcanvas-info"><i class="jam jam-info"></i></button></li>
         </ul>
         <!-- /.navbar-nav -->
@@ -40,14 +41,15 @@
           <li class="nav-item"><a class="nav-link" href="{%url 'robotics'%}">Robotic</a></li>
           <li class="nav-item"><a class="nav-link" href="{%url 'ai'%}">AI</a></li> 
         
-          <li class="nav-item"><a class="nav-link" href="{%url 'career'%}">Career</a></li>
-            
+         
        
           <li class="nav-item"><a class="nav-link" href="{%url 'blog'%}">Blog</a></li>
             
           <li class="nav-item"><a class="nav-link" href="{%url 'about'%}">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="{%url 'chatbot'%}">Chat Bot</a></li>
+          <li class="nav-item"><a class="nav-link" href="{%url 'career'%}">Career</a></li>
             
-          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="{%url 'contact'%}">Contact Us</a></li>
           
         </ul>
         <!-- /.navbar-nav -->
@@ -61,7 +63,6 @@
   <!-- /.navbar -->
   <div class="offcanvas-info inverse-text">
     <button class="plain offcanvas-close offcanvas-info-close"><i class="jam jam-close"></i></button>
-    <a href="{%url 'home'%}"><img src="#" srcset="images/logo1.png 1x, images/logo1.png 2x" alt="" /></a>
     <div class="space30"></div>
     <p>{{navFooter.side_bar_description}}<p>
     <div class="space20"></div>

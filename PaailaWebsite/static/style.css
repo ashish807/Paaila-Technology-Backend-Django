@@ -1369,7 +1369,7 @@ footer.dark-wrapper,
     z-index: 1;
     width: 100%;
     height: 100%;
-    background: rgba(var(--rgb-dark), 0.5);
+    /* background: rgba(var(--rgb-dark), 0.5); */
 }
 .image-wrapper.rounded:before {
     border-radius: 0.2rem !important;
