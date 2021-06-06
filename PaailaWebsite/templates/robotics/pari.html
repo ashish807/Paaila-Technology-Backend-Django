@@ -37,12 +37,11 @@
     
     <div class="{%if deploys_count <= 4%}col-lg-{{deploys_count}} col-md-{{deploys_count}} {%else%} col-lg-3 col-md-3 {%endif%} col-12">
       <div class="card" style="border:none !important;">
-        <img src="{%static 'style/images/robotics/Thumbnails_Design (1).png'%}"
+        <img src="{{deploy.image.url}}"
           style="background-color:rgba(0, 0, 255, 0.418);" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title text-center"> <b>Design </b></h5>
-          <p class="card-text">State of the art tools are used to design an impeccable Pari for you. Look out for her
-            charming eyes!</p>
+          <h5 class="card-title text-center"> <b>{{deploy.category_title}} </b></h5>
+          <p class="card-text">{{deploy.category_description}}</p>
 
 
         </div>
